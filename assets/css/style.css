@@ -1,6 +1,6 @@
 
 .jumbotron {
-    background: url(/assets/images/hero.webp) no-repeat center center;
+    background: url(./assets/images/hero.webp) no-repeat center center;
     background-size: 100%;
     color: black;
     text-align: center;
