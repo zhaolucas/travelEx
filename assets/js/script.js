@@ -17,8 +17,8 @@
 // - when you click the country button it re-displays the currency data for that country
 
 //Function to get the Exchange Rate
-var getExchangeRate = async function (from, to) {
-    const currencyUrl = `https://currency-exchange.p.rapidapi.com/exchange?from=${from}&to=${to}&q=1.0`;
+var getExchangeRate = async function (currFrom, currTo) {
+    const currencyUrl = `https://currency-exchange.p.rapidapi.com/exchange?from=${currFrom}&to=${currTo}&q=1.0`;
 
     const currencyOptions = {
         method: 'GET',
@@ -47,12 +47,12 @@ var getExchangeRate = async function (from, to) {
 };
 
 //Function to get the location geoID and pass to the getHotel function
-var getLocation = async function (locations) {
+var getLocation = async function (locations, checkInDate, checkOutDate) {
     const locUrl = `https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchLocation?query=${locations}`;
     const locOptions = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'ef11899325mshfa3ab5c07bdaacbp1c7deajsne4943a99efb8',
+            'X-RapidAPI-Key': '66140ba915mshd0ef6c163e6b47dp1cb311jsnb1e8a4f5e694',
             'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
         }
     };
@@ -70,11 +70,11 @@ var getLocation = async function (locations) {
 
         // Check if the response has data and at least one result
         if (result && result.data && result.data.length > 0) {
-            const geoID = result.data[0].geoId; // Use lowercase "d" in geoId
+            const geoID = result.data[0].geoId; 
             console.log("GeoID:", geoID);
 
             // Pass geoID to the getHotel function
-            getHotel(geoID);
+            getHotel(geoID, checkInDate, checkOutDate);
 
             // Return the geoID if needed for further processing
             return geoID;
@@ -93,7 +93,7 @@ var getHotel = async function (geoID, checkInDate, checkOutDate) {
     const hotelOptions = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'ef11899325mshfa3ab5c07bdaacbp1c7deajsne4943a99efb8',
+            'X-RapidAPI-Key': '66140ba915mshd0ef6c163e6b47dp1cb311jsnb1e8a4f5e694',
             'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
         }
     };
@@ -107,21 +107,44 @@ var getHotel = async function (geoID, checkInDate, checkOutDate) {
     }
 }
 
-// Example usage:
-const from = 'GBP'; // Replace with user input from a click event
-const to = 'USD'; // Replace with user input from a click event
-const locations = 'London'; // Replace with user input from a click event
-const checkInDate = '2024-01-22'; // Replace with user input from a click event
-const checkOutDate = '2024-01-23'; // Replace with user input from a click event
 
-// Call the function with user inputs - will need to change this to be a click event
-getExchangeRate(from, to);
 
-// Now call the remaining functions - will need to change this to be a click event
-(async () => {
-    const geoID = await getLocation(locations);
-    await getHotel(geoID, checkInDate, checkOutDate);
-})();
+// Click Event Function for Currency button
+$("#submitConvert").on("click", function (event) {
+    event.preventDefault();
+    var currFrom = $("#currFrom").val();
+    var currTo = $("#currTo").val();
+
+    //Call the getExchangeRate function
+    getExchangeRate(currFrom, currTo);
+    // Store the city name in local storage
+    storeCurrencyInLocalStorage(currFrom, currTo);
+
+});
+
+// Click Event Function for Currency button
+$("#submitHotel").on("click", function (event) {
+    event.preventDefault();
+    var locations = $("#searchLocation").val();
+    var checkInDate = $("#checkinDate").val();
+    var checkOutDate = $("#checkoutDate").val();
+
+    //Call the getLocation function
+    getLocation(locations,checkInDate,checkOutDate);
+
+});
+
+// Function to store currency in local storage
+function storeCurrencyInLocalStorage(from, to) {
+    // Check if there is already a currency history in local storage
+    var currencyHistory = JSON.parse(localStorage.getItem("currencyHistory")) || [];
+
+    // Add the new currency fields to the currency history array
+    currencyHistory.push({ from, to });
+
+    // Store the updated currency history back in local storage
+    localStorage.setItem("currencyHistory", JSON.stringify(currencyHistory));
+}
 
 
 
