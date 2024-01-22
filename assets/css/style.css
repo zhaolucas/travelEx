@@ -1,3 +1,57 @@
+/* Navbar Styling */
+.navbar {
+    background-color: #f8f9fa; /* Lighter background for contrast with black text */
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand img {
+    height: 80px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1);
+}
+
+.navbar-nav .nav-item {
+    margin-left: 20px;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    color: #000000; /* Black text for high visibility */
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #007bff; /* Blue color for hover and active states */
+    font-weight: bold;
+}
+
+/* Search Form */
+.navbar .form-control {
+    background-color: #ffffff;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.navbar .form-control:focus {
+    border-color: #007bff;
+    box-shadow: none;
+}
+
+.navbar .btn-outline-success {
+    color: #000000; /* Black color for button text */
+    border-color: #28a745; /* Green border */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar .btn-outline-success:hover {
+    background-color: #28a745;
+    color: #ffffff; /* White text on hover */
+}
+
 /* Jumbotron section */
 .jumbotron {
     background: url("../images/hero.webp") no-repeat center center;
@@ -40,6 +94,127 @@
     background-color: #0056b3;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
 }
+/* Styling for Tab Cards Container */
+.p-5.mb-4 {
+    background-color: #f8f9fa; /* Light background for the tab area */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Styling for the Nav Tabs */
+.nav-tabs {
+    border-bottom: 2px solid #dee2e6; /* Bottom border for the tab list */
+}
+
+.nav-item {
+    margin-bottom: -2px; /* Align the tabs perfectly with the content border */
+}
+
+.nav-link {
+    border: 2px solid transparent; /* Transparent border; will be colored on active/hover */
+    padding: 10px 15px; /* Spacing inside each tab */
+    color: #007bff; /* Color of the tab text */
+    background-color: #f8f9fa; /* Background color of tabs */
+    transition: border-color 0.3s ease-in-out; /* Smooth transition for border color */
+}
+
+.nav-link.active,
+.nav-link:hover {
+    border-color: #007bff #007bff #f8f9fa; /* Border color for active/hover state */
+    color: #0056b3; /* Text color for active/hover state */
+    background-color: #ffffff; /* Background color for active/hover tab */
+}
+
+/* Styling for the Tab Content */
+.tab-content {
+    background-color: #ffffff; /* Background color for the content area */
+    padding: 15px; /* Spacing inside the content area */
+    border-radius: 0 0 8px 8px; /* Rounded corners on the bottom */
+    border: 2px solid #dee2e6; /* Border around the content area */
+    border-top: none; /* Remove the top border */
+}
+
+/* Additional Styling for Form Elements within Tabs */
+.form-control {
+    margin-bottom: 1rem; /* Margin below form inputs */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Primary button background color */
+    border-color: #007bff; /* Primary button border color */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker shade on hover for the button */
+    border-color: #0056b3; /* Border color on hover for the button */
+}
+
+/* Container for Cards */
+.container-fluid {
+    padding: 1rem;
+}
+
+/* Row for Cards */
+.row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* Card Styling */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    margin-bottom: 2rem; /* Margin below each card */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensures content fits within the borders */
+    display: flex; /* Flex display */
+    flex-direction: column; /* Stack content vertically */
+    height: 100%; /* Full height */
+}
+
+/* Card Columns Styling */
+.col-lg-4, .col-md-6, .col-sm-12 {
+    display: flex; /* Enables flexbox */
+    flex: 1; /* Flex grow to fill space */
+}
+
+/* Card Image Styling */
+.card-img-top {
+    width: 100%; /* Full width of the card */
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensures images are scaled properly */
+}
+
+/* Card Body Styling */
+.card-body {
+    padding: 1rem; /* Padding inside the card */
+    flex-grow: 1; /* Allows card body to fill available space */
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 1rem;
+}
+
+/* Styling for forms in cards */
+.card .form-control, .card .btn-outline-success {
+    margin-bottom: 0.5rem; /* Margin below elements */
+}
+
+.card .btn-outline-success {
+    color: #28a745; /* Button text color */
+    border-color: #28a745; /* Button border color */
+}
+
+.card .btn-outline-success:hover {
+    background-color: #28a745; /* Button background color on hover */
+    color: #ffffff; /* Button text color on hover */
+}
+
 
 /* Styling for the subscribe button */
 .subscribe-button {
