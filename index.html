@@ -76,9 +76,7 @@
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
-          tabindex="0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, neque deleniti? Illum saepe
-          ex in consequatur similique doloribus necessitatibus quo soluta voluptate rem enim exercitationem cupiditate,
-          aperiam voluptatum. Officiis, iste.</div>
+          tabindex="0">Select flights, hotel and currency exchange rate here.</div>
         <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
           <form>
             <fieldset Hotel="">
@@ -95,129 +93,73 @@
   </div>
   </div>
 
-  <!-- end of tab card 2 -->
-
   <!-- cards cards cards -->
   <div class="container-fluid">
-    <div class="row">
-      <!-- Card 1 -->
-      <div class="cardContainer col-lg-4 col-md-4 col-sm-6">
-        <div class="card">
-          <img src="./assets/images/hotel1.png" class="card-img-top" alt="...">
+    <div class="row d-flex justify-content-between">
+
+      <!-- Flights Card -->
+      <div class="col-lg-4 col-md-6 col-sm-12 d-flex align-items-stretch">
+        <div class="card mb-4">
+          <img src="./assets/images/hotel1.png" class="card-img-top" alt="Flights">
           <div class="card-body">
             <h5 class="card-title">Flights</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <div class="container-fluid">
-              <a class="navbar-brand"></a>
-              <form class="d-flex" role="search">
+            <p class="card-text">Search for your flights here.</p>
+            <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
-            </div>
+            </form>
           </div>
         </div>
       </div>
-      <!-- End card 1 -->
 
-      <!-- Card 2 -->
-      <div class="cardContainer col-lg-4 col-md-4 col-sm-6">
-        <div class="card">
-          <img src="./assets/images/money1.png" class="card-img-top" alt="...">
+      <!-- Hotels Card -->
+      <div class="col-lg-4 col-md-6 col-sm-12 d-flex align-items-stretch">
+        <div class="card mb-4">
+          <img src="./assets/images/hotel2.png" class="card-img-top" alt="Hotels" style="height: 300px;">
           <div class="card-body">
             <h5 class="card-title">Hotels</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <div class="container-fluid">
-              <a class="navbar-brand"></a>
-
-              <form>
-                <fieldset Hotel="">
-                  <div class="mb-3">
-                    <input type="text" id="TextInput" class="form-control" placeholder="Search Hotel">
-                  </div>
-                  <!-- <div class="mb-3">
-                  </div>
-                  <div class="mb-3">
-                    <div class="form-check">
-                      </label>
-                    </div>
-                  </div> -->
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </fieldset>
-              </form>
-
-            </div>
-=========
-  <div class="cardContainer col-lg-6 col-md-6 col-sm-12">
-    <div class="card">
-      <img src="https://picsum.photos/100/100" height=300px card-img-top alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Hotels</h5>
-        <class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.
-          <div class="container-fluid">
-            <a class="navbar-brand"></a>
-  
+            <p class="card-text">Search for your hotels here.</p>
             <form>
-              <fieldset Hotel="">
                 <div class="mb-3">
-                  <input type="text" id="searchLocation" class="form-control" placeholder="Search Location"> <br>
-                  <!-- calendercode -->
-                  <section class="Calender">
+                  <input type="text" id="searchLocation" class="form-control" placeholder="Search Location">
+                  <!-- Calendar Code -->
+                  <section class="Calendar">
                     Check-in Date
                     <input id="checkinDate" width="276" />
-                    <script>
-                      $('#checkinDate').datepicker({
-                        uiLibrary: 'bootstrap5'
-                      });
-                    </script>
                     Check-out Date
                     <input id="checkoutDate" width="276" />
-                    <script>
-                      $('#checkoutDate').datepicker({
-                        uiLibrary: 'bootstrap5'
-                      });
-                    </script>
                   </section>
-                  <!-- End of calendercode -->
+                  <!-- End of Calendar Code -->
                   <button type="submit" id="submitHotel" class="btn btn-primary">Search</button>
                 </div>
->>>>>>>>> Temporary merge branch 2
-          </div>
-      </div>
-    </div>
-  </div>
-      <!-- End card 2 -->
-
-      <!-- Card 3 -->
-      <div class="cardContainer col-lg-4 col-md-4 col-sm-6">
-        <div class="card">
-          <img src="https://picsum.photos/200/200" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Foreign Exchange</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <div class="container-fluid">
-              <a class="navbar-brand"></a>
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-
-              </form>
-
-            </div>
+            </form>
           </div>
         </div>
       </div>
-      <!-- End card 3 -->
-      <!-- cards cards cards -->
-      </ul>
+      
+      <!-- Currency Exchange Card -->
+      <div class="col-lg-4 col-md-6 col-sm-12 d-flex align-items-stretch">
+        <div class="card mb-4">
+          <img src="./assets/images/money2.png" class="card-img-top" alt="Foreign Exchange">
+          <div class="card-body">
+            <h5 class="card-title">Foreign Exchange</h5>
+            <p class="card-text">Find the best rates for your travel money.</p>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>
+
+
 <!-- Button to trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#subscribeModal">
   Subscribe for more travel deals!
 </button>
-
 <!-- Subscribe Modal -->
 <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -283,4 +225,3 @@
         crossorigin="anonymous"></script>
   <script src="./assets/js/script.js"></script>
 </body>
-
