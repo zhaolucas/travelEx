@@ -215,8 +215,10 @@
     color: #ffffff; /* Button text color on hover */
 }
 
-
 /* Styling for the subscribe button */
+.btn-primary.subscribe-btn-margin {
+    margin-top: 40px; /* Add 30px of space above the subscribe button */
+}
 .subscribe-button {
     display: block; /* Makes the button a block element */
     margin: 0 auto; /* Centers the button horizontally */
