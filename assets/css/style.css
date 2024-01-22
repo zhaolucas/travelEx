@@ -125,3 +125,16 @@
     font-size: 0.9rem;
 }
 
+.page-footer .social-media-links img {
+    height: 20px;
+    margin-right: 10px;
+}
+
+.page-footer .social-media-links a {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.page-footer .social-media-links a:hover {
+    opacity: 0.8;
+}
