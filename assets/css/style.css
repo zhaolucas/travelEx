@@ -1,42 +1,67 @@
-/* jumbotron section */
+/* Jumbotron section */
 .jumbotron {
     background: url("../images/hero.webp") no-repeat center center;
-    background-size: 100%;
-    color: black;
+    background-size: cover; /* Ensures the background covers the entire Jumbotron */
+    color: #fff; /* White text for better readability */
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 5rem 2rem; /* Increased padding for a more spacious layout */
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5); /* Dark overlay for better text contrast */
+    position: relative;
+    overflow: hidden;
 }
 
 .jumbotron h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 4rem; /* Larger font size for the main title */
+    font-weight: 700; /* Bold font weight for emphasis */
+    margin-bottom: 1.5rem; /* Increased spacing */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Text shadow for better visibility */
 }
 
 .jumbotron p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+    font-size: 1.8rem; /* Slightly larger font for the subtitle */
+    max-width: 600px; /* Max width for better readability */
+    margin: auto; /* Auto margins for centering */
+    margin-bottom: 2.5rem;
+    line-height: 1.4; /* Improved line height */
 }
 
 .jumbotron button {
-    font-size: 1.2rem;
-    padding: 0.75rem 1.5rem;
+    font-size: 1.3rem;
+    padding: 1rem 2rem; /* Larger button for better clickability */
     border: none;
     background-color: #007bff;
     color: white;
-    border-radius: 5px;
+    border-radius: 8px; /* Slightly rounded corners */
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .jumbotron button:hover {
     background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
 }
 
-/* subscribe section */
+/* Styling for the subscribe button */
+.subscribe-button {
+    display: block; /* Makes the button a block element */
+    margin: 0 auto; /* Centers the button horizontally */
+    background-color: #007bff; /* Custom button color */
+    color: white; /* Text color */
+    font-size: 1.2rem; /* Larger font size */
+    padding: 10px 20px; /* Top/bottom and left/right padding */
+    border-radius: 25px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.subscribe-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
 
 /* Custom styles for the subscribe modal */
 #subscribeModal .modal-header {
     background-color: #007bff; /* Example header background color */
     color: white; /* Text color for the header */
+    border-bottom: 1px solid #0056b3; /* Adds a border to the bottom of the header */
 }
 
 #subscribeModal .btn-close {
@@ -54,11 +79,14 @@
 #subscribeModal .btn-primary {
     background-color: #0062cc; /* Primary button color */
     border-color: #0056b3; /* Border color for primary button */
+    border-radius: 20px; /* Rounded corners for the button */
 }
 
 #subscribeModal .btn-primary:hover {
     background-color: #0056b3; /* Darker shade on hover */
+    border-color: #004c99; /* Darker border on hover */
 }
+
 
 /* footer section */
 .page-footer {
