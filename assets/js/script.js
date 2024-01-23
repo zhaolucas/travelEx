@@ -41,7 +41,7 @@ var getExchangeRate = async function (currFrom, currTo) {
 
         // Now result contains the parsed JSON data
         console.log(result);
-        var ExchangeContainer= $("<div>").addClass("current-exchange-container");
+        var ExchangeContainer = $("<div>").addClass("current-exchange-container");
         var currentexchange = $("<div>").addClass("current-exchange");
         currentexchange.text(`Currency Exchange Rate: ` + result);
         ExchangeContainer.append(currentexchange);
@@ -77,11 +77,8 @@ var getLocation = async function (locations, checkInDate, checkOutDate) {
 
         // Check if the response has data and at least one result
         if (result && result.data && result.data.length > 0) {
-            const geoID = result.data[0].geoId; 
+            const geoID = result.data[0].geoId;
             console.log("GeoID:", geoID);
-
-            // Pass geoID to the getHotel function
-            getHotel(geoID, checkInDate, checkOutDate);
 
             // Return the geoID if needed for further processing
             return geoID;
@@ -109,6 +106,33 @@ var getHotel = async function (geoID, checkInDate, checkOutDate) {
         const response = await fetch(hotelUrl, hotelOptions);
         const result = await response.json();
         console.log(result);
+
+        // Create a container for hotel cards
+        var HotelCardsContainer = $("<div>").addClass("row mt-3");
+        $("#hotelSearch-results").append(HotelCardsContainer);
+
+        for (var i = 1; i <= 5; i++) {
+            // Create a new card container
+            var HotelCard = $("<div>").addClass("col-md-2 Hotel-card Hotel-card-details");
+
+            // Append the card container to the Hotel cards container
+            HotelCardsContainer.append(HotelCard);
+
+            // add Hotel Names
+            var HotelName = $("<div>").addClass("Hotel-Name").attr("id", "Hotel-Name-" + i);
+            HotelName.text("Hotel Name: " + result.data.data[i].title);
+            HotelCard.append(HotelName);
+
+            // add Price
+            var Price = $("<div>").addClass("Price").attr("id", "Price-" + i);
+            Price.text("Price: " + result.data.data[i].priceForDisplay);
+            HotelCard.append(Price);
+
+            // add Primary Info
+            var primaryInfo = $("<div>").addClass("primaryInfo").attr("id", "primary-info-" + i);
+            primaryInfo.text("Primary Info: " + result.data.data[i].primaryInfo);
+            HotelCard.append(primaryInfo);
+        }
     } catch (error) {
         console.error(error);
     }
@@ -128,17 +152,24 @@ $("#submitConvert").on("click", function (event) {
 });
 
 // Click Event Function for Hotel button
-$("#submitHotel").on("click", function (event) {
+$("#submitHotel").on("click", async function (event) {
     event.preventDefault();
     var locations = $("#searchLocation").val();
     var checkInDate = $("#checkinDate").val();
     var checkOutDate = $("#checkoutDate").val();
 
-    //Call the getLocation function
-    getLocation(locations,checkInDate,checkOutDate);
-    // Store the location, checkInDate, checkOutDate in local storage
-    storeHotelInLocalStorage(locations,checkInDate,checkOutDate);
+    try {
+        // Call the getLocation function and wait for it to complete
+        const geoID = await getLocation(locations, checkInDate, checkOutDate);
 
+        // Call the getHotel function with the obtained geoID
+        getHotel(geoID, checkInDate, checkOutDate);
+
+        // Store the location, checkInDate, checkOutDate, and geoID in local storage
+        storeHotelInLocalStorage(locations, checkInDate, checkOutDate, geoID);
+    } catch (error) {
+        console.error(error);
+    }
 });
 
 // Function to store currency search in local storage
@@ -154,12 +185,12 @@ function storeCurrencyInLocalStorage(from, to) {
 }
 
 // Function to store Hotel search in local storage
-function storeHotelInLocalStorage(locations,checkInDate,checkOutDate) {
+function storeHotelInLocalStorage(locations, checkInDate, checkOutDate) {
     // Check if there is already a hotel history in local storage
     var hotelHistory = JSON.parse(localStorage.getItem("hotelHistory")) || [];
 
     // Add the new hotel fields to the hotel history array
-    hotelHistory.push({ locations,checkInDate,checkOutDate });
+    hotelHistory.push({ locations, checkInDate, checkOutDate });
 
     // Store the updated hotel history back in local storage
     localStorage.setItem("hotelHistory", JSON.stringify(hotelHistory));
@@ -172,7 +203,7 @@ function displayCurrencyHistory() {
     var currencyHistory = JSON.parse(localStorage.getItem("currencyHistory")) || [];
 
     // Get the element where you want to display the buttons
-    var currencyHistoryContainer = $("#currencyHistory");
+    var currencyHistoryContainer = $("#fxSearchhistory");
 
     // Clear existing content
     currencyHistoryContainer.empty();
@@ -200,7 +231,7 @@ function displayHotelHistory() {
     var hotelHistory = JSON.parse(localStorage.getItem("hotelHistory")) || [];
 
     // Get the element where you want to display the buttons
-    var hotelHistoryContainer = $("#hotelHistory");
+    var hotelHistoryContainer = $("#hotelSearchhistory");
 
     // Clear existing content
     hotelHistoryContainer.empty();
