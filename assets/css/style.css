@@ -1,42 +1,244 @@
-/* jumbotron section */
+/* Navbar Styling */
+.navbar {
+    background-color: #f8f9fa; /* Lighter background for contrast with black text */
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand img {
+    height: 80px;
+    transition: transform 0.3s ease;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1);
+}
+
+.navbar-nav .nav-item {
+    margin-left: 20px;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    color: #000000; /* Black text for high visibility */
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: #007bff; /* Blue color for hover and active states */
+    font-weight: bold;
+}
+
+/* Search Form */
+.navbar .form-control {
+    background-color: #ffffff;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.navbar .form-control:focus {
+    border-color: #007bff;
+    box-shadow: none;
+}
+
+.navbar .btn-outline-success {
+    color: #000000; /* Black color for button text */
+    border-color: #28a745; /* Green border */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar .btn-outline-success:hover {
+    background-color: #28a745;
+    color: #ffffff; /* White text on hover */
+}
+
+/* Jumbotron section */
 .jumbotron {
     background: url("../images/hero.webp") no-repeat center center;
-    background-size: 100%;
-    color: black;
+    background-size: cover; /* Ensures the background covers the entire Jumbotron */
+    color: #fff; /* White text for better readability */
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 5rem 2rem; /* Increased padding for a more spacious layout */
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5); /* Dark overlay for better text contrast */
+    position: relative;
+    overflow: hidden;
 }
 
 .jumbotron h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 4rem; /* Larger font size for the main title */
+    font-weight: 700; /* Bold font weight for emphasis */
+    margin-bottom: 1.5rem; /* Increased spacing */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Text shadow for better visibility */
 }
 
 .jumbotron p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+    font-size: 1.8rem; /* Slightly larger font for the subtitle */
+    max-width: 600px; /* Max width for better readability */
+    margin: auto; /* Auto margins for centering */
+    margin-bottom: 2.5rem;
+    line-height: 1.4; /* Improved line height */
 }
 
 .jumbotron button {
-    font-size: 1.2rem;
-    padding: 0.75rem 1.5rem;
+    font-size: 1.3rem;
+    padding: 1rem 2rem; /* Larger button for better clickability */
     border: none;
     background-color: #007bff;
     color: white;
-    border-radius: 5px;
+    border-radius: 8px; /* Slightly rounded corners */
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .jumbotron button:hover {
     background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+}
+/* Styling for Tab Cards Container */
+.p-5.mb-4 {
+    background-color: #f8f9fa; /* Light background for the tab area */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-/* subscribe section */
+/* Styling for the Nav Tabs */
+.nav-tabs {
+    border-bottom: 2px solid #dee2e6; /* Bottom border for the tab list */
+}
+
+.nav-item {
+    margin-bottom: -2px; /* Align the tabs perfectly with the content border */
+}
+
+.nav-link {
+    border: 2px solid transparent; /* Transparent border; will be colored on active/hover */
+    padding: 10px 15px; /* Spacing inside each tab */
+    color: #007bff; /* Color of the tab text */
+    background-color: #f8f9fa; /* Background color of tabs */
+    transition: border-color 0.3s ease-in-out; /* Smooth transition for border color */
+}
+
+.nav-link.active,
+.nav-link:hover {
+    border-color: #007bff #007bff #f8f9fa; /* Border color for active/hover state */
+    color: #0056b3; /* Text color for active/hover state */
+    background-color: #ffffff; /* Background color for active/hover tab */
+}
+
+/* Styling for the Tab Content */
+.tab-content {
+    background-color: #ffffff; /* Background color for the content area */
+    padding: 15px; /* Spacing inside the content area */
+    border-radius: 0 0 8px 8px; /* Rounded corners on the bottom */
+    border: 2px solid #dee2e6; /* Border around the content area */
+    border-top: none; /* Remove the top border */
+}
+
+/* Additional Styling for Form Elements within Tabs */
+.form-control {
+    margin-bottom: 1rem; /* Margin below form inputs */
+}
+
+.btn-primary {
+    background-color: #007bff; /* Primary button background color */
+    border-color: #007bff; /* Primary button border color */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker shade on hover for the button */
+    border-color: #0056b3; /* Border color on hover for the button */
+}
+
+/* Container for Cards */
+.container-fluid {
+    padding: 1rem;
+}
+
+/* Row for Cards */
+.row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* Card Styling */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    margin-bottom: 2rem; /* Margin below each card */
+    border-radius: 10px; /* Rounded corners */
+    overflow: hidden; /* Ensures content fits within the borders */
+    display: flex; /* Flex display */
+    flex-direction: column; /* Stack content vertically */
+    height: 100%; /* Full height */
+}
+
+/* Card Columns Styling */
+.col-lg-4, .col-md-6, .col-sm-12 {
+    display: flex; /* Enables flexbox */
+    flex: 1; /* Flex grow to fill space */
+}
+
+/* Card Image Styling */
+.card-img-top {
+    width: 100%; /* Full width of the card */
+    height: 200px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensures images are scaled properly */
+}
+
+/* Card Body Styling */
+.card-body {
+    padding: 1rem; /* Padding inside the card */
+    flex-grow: 1; /* Allows card body to fill available space */
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 1rem;
+}
+
+/* Styling for forms in cards */
+.card .form-control, .card .btn-outline-success {
+    margin-bottom: 0.5rem; /* Margin below elements */
+}
+
+.card .btn-outline-success {
+    color: #28a745; /* Button text color */
+    border-color: #28a745; /* Button border color */
+}
+
+.card .btn-outline-success:hover {
+    background-color: #28a745; /* Button background color on hover */
+    color: #ffffff; /* Button text color on hover */
+}
+
+/* Styling for the subscribe button */
+.btn-primary.subscribe-btn-margin {
+    margin-top: 40px; /* Add 30px of space above the subscribe button */
+}
+.subscribe-button {
+    display: block; /* Makes the button a block element */
+    margin: 0 auto; /* Centers the button horizontally */
+    background-color: #007bff; /* Custom button color */
+    color: white; /* Text color */
+    font-size: 1.2rem; /* Larger font size */
+    padding: 10px 20px; /* Top/bottom and left/right padding */
+    border-radius: 25px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.subscribe-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
 
 /* Custom styles for the subscribe modal */
 #subscribeModal .modal-header {
     background-color: #007bff; /* Example header background color */
     color: white; /* Text color for the header */
+    border-bottom: 1px solid #0056b3; /* Adds a border to the bottom of the header */
 }
 
 #subscribeModal .btn-close {
@@ -54,74 +256,52 @@
 #subscribeModal .btn-primary {
     background-color: #0062cc; /* Primary button color */
     border-color: #0056b3; /* Border color for primary button */
+    border-radius: 20px; /* Rounded corners for the button */
 }
 
 #subscribeModal .btn-primary:hover {
     background-color: #0056b3; /* Darker shade on hover */
+    border-color: #004c99; /* Darker border on hover */
 }
 
-/* footer section */
+/* Footer section */
 .page-footer {
-    background-color: #007bff; /* Footer background color */
-    color: black; /* Text color for the footer */
-    padding: 2rem 0; /* Footer padding */
-}
-
-.page-footer h5 {
-    margin-bottom: 1rem;
-}
-
-.page-footer p {
-    font-size: 1rem;
-}
-
-.page-footer a {
-    color: black;/* Link color */
-    text-decoration: none; /* No underline on links */
-}
-
-.page-footer a:hover {
-    color: #ddd; /* Link hover color */
-}
-
-.page-footer .list-unstyled li {
-    margin-bottom: 0.5rem;
-}
-
-.page-footer .list-unstyled a {
-    font-size: 0.9rem;
-}
-
-.page-footer {
-    background-color: #f8f9fa; /* Light footer background color */
-    color: #333; /* Text color for better readability */
+    background-color: #f8f9fa; /* Light background for contrast with black text */
+    color: #000000; /* Black text color for high contrast */
     padding: 2rem 0;
 }
 
 .page-footer h5 {
-    color: #007bff; /* Brand color for headings */
+    color: #007bff; /* A brighter, distinct color for headings */
     margin-bottom: 1rem;
+    font-size: 1.4rem; /* Slightly larger headings for visibility */
 }
 
-.page-footer p {
-    font-size: 1rem;
-    color: #555;
-}
-
-.page-footer a {
-    color: #007bff; /* Link color matching the brand */
-    text-decoration: none;
+.page-footer p, .page-footer a {
+    color: #000000; /* Black for text and links */
 }
 
 .page-footer a:hover {
-    color: #0056b3; /* Link hover color */
+    color: #0056b3; /* Slightly darker shade for hover effects */
+    text-decoration: underline; /* Underline on hover for clarity */
+}
+
+.page-footer .list-unstyled {
+    padding-left: 0;
+    list-style-type: none;
 }
 
 .page-footer .list-unstyled li {
     margin-bottom: 0.5rem;
 }
 
-.page-footer .list-unstyled a {
-    font-size: 0.9rem;
+.page-footer .social-media-links img {
+    height: 24px; /* Slightly larger icons for visibility */
+    filter: grayscale(100%); /* Make icons black and white */
+    transition: filter 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.page-footer .social-media-links a:hover img {
+    filter: grayscale(0%); /* Full color on hover */
 }
 
