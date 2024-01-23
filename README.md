@@ -1,113 +1,86 @@
-# travelEx
-this is the first project for the front-end web development bootcamp 
+# travelEx: your budget travel companion 
 
-You and your group will use everything you’ve learned to create a real-world front-end application that you’ll be able to showcase to potential employers. The user story and acceptance criteria will depend on the project that you create, but your project must fulfil the following requirements:
+## Table of Contents
 
-* Use Bootstrap.
+* [Introduction](#introduction)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Features](#features)
+* [Credits](#credits)
+* [Contribution](#contribution)
+* [Tests](#tests)
+* [License](#license)
 
-* Be deployed to GitHub Pages.
+## Introduction
 
-* Be interactive (i.e., accept and respond to user input).
+This is the first project for the front-end web development bootcamp. 
 
-* Use at least two [server-side APIs](https://coding-boot-camp.github.io/full-stack/apis/api-resources).
+Our group has used everything we have learned to create a real-world front-end application that we will be able to showcase to potential employers. Our project uses Bootstrap, is deployed to GitHub Pages, is interactive and has a quality README (with unique name, description, technologies used, screenshot, and link to deployed application). 
 
-* Does not use alerts, confirms, or prompts (use modals).
+The application uses client-side storage to store persistent data and does not use JS alerts, prompts, or confirms, but uses modals and cards. This project deploys 2 APIs (https://rapidapi.com/DataCrawler/api/tripadvisor16 and https://rapidapi.com/fyhao/api/currency-exchange/), to get data about hotels and currency for the country. 
 
-* Use client-side storage to store persistent data.
+This app allows holiday planners to check for the best prices for hotels and allows them to convert their local currency to another currency of choice easily. It will help the user to plan a holiday or work trip to a destination of their choice. 
 
-* Be responsive.
+User Story
+As a thrifty aspiring Front-End development student,
+I want to find budget hotels and airlines,
+And calculate the potential expenses in local currencies,
+So that I can plan a cost-effective vacation after graduation to reward myself 
+without overspending.
 
-* Have a polished UI.
+Link to the deployed application: https://zhaolucas.github.io/travelEx/
 
-* Have a clean repository that meets quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.).
+## Installation
 
-* Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
+For setting up the development environment:
 
-## Presentation Requirements
+1. Clone the repository to your local machine.
+2. Open the HTML, CSS, and JavaScript files in a code editor like VS Code.
+3. Make sure to install Bootstrap for responsive design.
+4. Use Git for version control and commit your changes to GitHub.
 
-Use this [project presentation template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing) to address the following: 
+## Usage 
 
-* Elevator pitch: a one minute description of your application
+travelEx simplifies holiday planning with easy-to-use interfaces. The main sections include:
 
-* Concept: What is your user story? What was your motivation for development?
+1. Navigation Bar: Quick access to all features.
+2. Jumbotron: Eye-catching introduction with a hero image.
+3. Search Bars: For flights, accommodation, and currency exchange.
+4. Call-to-Action Card: Engages the user for immediate action.
+5. Subscription Button: For regular updates and offers.
+6. Footer: Links to social media, 'About Us', and other resources.
 
-* Process: What were the technologies used? How were tasks and roles broken down and assigned? What challenges did you encounter? What were your successes?
+The following animation demonstrates the application functionality:
 
-* Demo: Show your stuff!
+![Description](</screenshot>)
 
-* Directions for Future Development
+## Features
 
-* Links to the deployed application and the GitHub repository
+1. Best Price Finder: Compares prices for hotels and flights.
+2. Currency Converter: Easily converts to the desired currency.
+3. Responsive Design: Accessible on various devices.
+4. Persistent Data Storage: Remembers your searches and preferences.
 
-## Grading Requirements
+## Credits
 
-This project is graded based on the following criteria:
+1) TA: Jack Labukas, Zak
+2) Instructor: Laura Cole
+3) Group members: Christoper Ezenwenyi, ​Sophie Ebsworth
+4) Personal Tutors
+5) Resources: Rapid API, W3 Schools
 
-### Technical Acceptance Criteria: 25%
+## Contribution
 
-* Satisfies the following code requirements:
+Please contribute direclty as you wish. 
 
-  * Application uses at least two [server-side APIs](https://coding-boot-camp.github.io/full-stack/apis/api-resources)
+## Tests
 
-  * Application uses client-side storage to store persistent data.
+1. All links and images are fully functional.
+2. Responsive design tested across multiple devices and browsers.
 
-  * Application doesn't use JS alerts, prompts, or confirms (uses modals instead).
+## License
 
-  * Application uses Bootstrap.
-
-  * Application is interactive (accepts and responds to user input)
-
-### Concept 10%
-
-* Application should be a unique and novel idea.
-
-* Your group should clearly and concisely articulate your project idea.
-
-### Deployment: 20%
-
-* Application deployed at live URL and loads with no errors.
-
-* Application GitHub URL submitted.
-
-### Repository Quality: 10%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains a quality README file with description, screenshot, and link to deployed application.
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-* Application is responsive.
-
-### Presentation 10%
-
-* Your group should present using Powerpoint or a similar presentation software.
-
-* Every group member should speak during the presentation.
-
-* Your presentation should follow the [Project Presentation Template](https://docs.google.com/presentation/d/10QaO9KH8HtUXj__81ve0SZcpO5DbMbqqQr4iPpbwKks/edit?usp=sharing).
-
-### Collaboration 10%
-
-* There are no major disparities in the number of GitHub contributions between group members.
-
-## How to Submit Your Interactive Front-End Project
-
-**Each member of your group** is required to submit the following for review:
-
-* The URL of the deployed application.
-
-* The URL of the GitHub repository, with a unique name and a README describing the project.
+NIL 
 
 ---
 © 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
