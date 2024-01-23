@@ -95,11 +95,11 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
 }
 /* Styling for Tab Cards Container */
-.p-5.mb-4 {
+/* .p-5.mb-4 {
     background-color: #f8f9fa; /* Light background for the tab area */
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
+} */
 
 /* Styling for the Nav Tabs */
 .nav-tabs {
@@ -151,69 +151,69 @@
 
 /* Container for Cards */
 .container-fluid {
-    padding: 1rem;
-}
+    /* padding: 1rem;
+} */
 
 /* Row for Cards */
-.row {
+/* .row {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-}
+} */
 
 /* Card Styling */
-.card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+/* .card {
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
     margin-bottom: 2rem; /* Margin below each card */
     border-radius: 10px; /* Rounded corners */
     overflow: hidden; /* Ensures content fits within the borders */
     display: flex; /* Flex display */
     flex-direction: column; /* Stack content vertically */
     height: 100%; /* Full height */
-}
+} */ */
 
 /* Card Columns Styling */
-.col-lg-4, .col-md-6, .col-sm-12 {
+/* .col-lg-4, .col-md-6, .col-sm-12 {
     display: flex; /* Enables flexbox */
     flex: 1; /* Flex grow to fill space */
-}
+} */
 
 /* Card Image Styling */
-.card-img-top {
+/* .card-img-top {
     width: 100%; /* Full width of the card */
     height: 200px; /* Fixed height for consistency */
-    object-fit: cover; /* Ensures images are scaled properly */
+    object-fit: cover; Ensures images are scaled properly */
 }
 
 /* Card Body Styling */
-.card-body {
-    padding: 1rem; /* Padding inside the card */
+/* .card-body {
+    /* padding: 1rem; /* Padding inside the card */
     flex-grow: 1; /* Allows card body to fill available space */
-}
+} */
 
 .card-title {
-    font-size: 1.2rem;
+    /* font-size: 1.2rem;
     margin-bottom: 0.5rem;
-}
+} */
 
 .card-text {
-    font-size: 1rem;
-}
+    /* font-size: 1rem;
+} */ */
 
 /* Styling for forms in cards */
-.card .form-control, .card .btn-outline-success {
+/* .card .form-control, .card .btn-outline-success {
     margin-bottom: 0.5rem; /* Margin below elements */
 }
 
 .card .btn-outline-success {
-    color: #28a745; /* Button text color */
+    /* color: #28a745; /* Button text color */
     border-color: #28a745; /* Button border color */
-}
+} */
 
 .card .btn-outline-success:hover {
-    background-color: #28a745; /* Button background color on hover */
+    /* background-color: #28a745; /* Button background color on hover */
     color: #ffffff; /* Button text color on hover */
-}
+} */
 
 /* Styling for the subscribe button */
 .btn-primary.subscribe-btn-margin {
