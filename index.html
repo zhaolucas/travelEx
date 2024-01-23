@@ -18,7 +18,7 @@
 
 <body>
 
-  <!-- Nav Section -->
+    <!-- Nav Section -->
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
@@ -27,30 +27,12 @@
       </a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <!-- Main Navigation Items -->
-            <!-- <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Flights</a> -->
-            </li>
             <li class="nav-item">
                 <a class="nav-link" href="#searchLocation">Hotels</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#currFrom">Foreign Exchange</a>
             </li>
-        </ul>
-        <!-- Right Aligned Navigation Items -->
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Support</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Manage My Booking</a>
-            </li>
-        </ul>
-        <!-- Search Form -->
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
     </div>
 </nav>
 
@@ -159,33 +141,42 @@
       <div class="list-group" id="fxSearchhistory"></div>
       <div class="list-group" id="hotelSearchhistory"></div>
 
-  <!-- Button to trigger modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#subscribeModal">
-    Subscribe for more travel deals!
-  </button>
-  <!-- Subscribe Modal -->
-  <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="subscribeModalLabel">Subscribe to Our Mouthwatering Deals</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="subscribeForm">
-            <div class="mb-3">
-              <label for="emailInput" class="form-label">Email address</label>
-              <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Enter your email">
-              <div id="emailHelp" class="form-text">Your privacy is important to us, so we'll never spam you or share your info with third parties. Take a look at our privacy policy. You can unsubscribe at any time.</div>
-            </div>
-            <button type="submit" class="btn btn-primary">Subscribe</button>
-          </form>
-        </div>
+<!-- Button to trigger subscribe modal -->
+<button type="button" class="btn btn-primary subscribe-button subscribe-btn-margin" data-bs-toggle="modal" data-bs-target="#subscribeModal">
+  Subscribe for more travel deals!
+</button>
+<!-- Subscribe Modal -->
+<div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="subscribeModalLabel">Subscribe to Our Mouthwatering Deals</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="subscribeForm">
+          <div class="mb-3">
+            <label for="emailInput" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Enter your email">
+            <div id="emailHelp" class="form-text">Your privacy is important to us, so we'll never spam you or share your info with third parties. Take a look at our privacy policy. You can unsubscribe at any time.</div>
+          </div>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
       </div>
     </div>
   </div>
+</div>
 
-
+  <footer class="page-footer font-small bg-light pt-4 mt-4">
+    <div class="container text-center text-md-left">
+        <div class="row">
+            <!-- Logo and Content -->
+            <div class="col-md-4 mt-md-0 mt-3">
+                <img src="./assets/images/icon1.png" alt="TravelEx Logo" style='height: 100px;'>
+                <h5 class="text-uppercase">TravelEx</h5>
+                <p>Your best friend to traveling.</p>
+            </div>
+  
           <!-- Footer Links -->
           <div class="col-md-4 mb-md-0 mb-3">
               <h5 class="text-uppercase">Useful Links</h5>
@@ -199,12 +190,11 @@
 
           <!-- Social Media Links -->
           <div class="col-md-4 mb-md-0 mb-3">
-            <h5 class="text-uppercase">Follow Us</h5>
+            <h5 class="text-uppercase">Creators' Github</h5>
             <ul class="list-unstyled social-media-links">
-                <li><a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-                <li><a href="https://www.twitter.com/yourpage" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
-                <li><a href="https://www.instagram.com/yourpage" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-                <li><a href="https://www.linkedin.com/yourpage" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+                <li><a href="https://github.com/zhaolucas" target="_blank"><i class="fab fa-github"></i>Lucas</a></li>
+                <li><a href="https://github.com/SophieEbby" target="_blank"><i class="fab fa-github"></i>Sophie</a></li>
+                <li><a href="https://github.com/christopher-eze" target="_blank"><i class="fab fa-github"></i>Christopher</a></li>
             </ul>
         </div>
     </div>
