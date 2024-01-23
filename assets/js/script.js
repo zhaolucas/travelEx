@@ -1,15 +1,15 @@
 // ---------------Pseudo Code--------------------
 // when User searches for a Hotel (clicks search button - click event):
 //! - Fetch data from a Travel API
-// - store the user inputs in a variable (location, check in date, check out date)
-// - use a fetch api to get the hotel data for that location
-// - store that city into local storage
+//! - store the user inputs in a variable (location, check in date, check out date)
+//! - use a fetch api to get the hotel data for that location
+//! - store that city into local storage
 // ---------------------------------------------------------
 // when User searches for a country (clicks search button - click event):
 //! - Fetch data from a currency API
-// - store the user inputs in a variable (currency from, currency to)
-// - use a fetch api to get the currency data for that country
-// - store that country into local storage
+//! - store the user inputs in a variable (currency from, currency to)
+//! - use a fetch api to get the currency data for that country
+//! - store that country into local storage
 // ----------------------------------------------------------
 // - use data in local.storage to create a city button under the travel search area for city history
 // - use data in local.storage to create a country button under the currency search area for country history
@@ -107,8 +107,6 @@ var getHotel = async function (geoID, checkInDate, checkOutDate) {
     }
 }
 
-
-
 // Click Event Function for Currency button
 $("#submitConvert").on("click", function (event) {
     event.preventDefault();
@@ -122,7 +120,7 @@ $("#submitConvert").on("click", function (event) {
 
 });
 
-// Click Event Function for Currency button
+// Click Event Function for Hotel button
 $("#submitHotel").on("click", function (event) {
     event.preventDefault();
     var locations = $("#searchLocation").val();
@@ -131,10 +129,12 @@ $("#submitHotel").on("click", function (event) {
 
     //Call the getLocation function
     getLocation(locations,checkInDate,checkOutDate);
+    // Store the location, checkInDate, checkOutDate in local storage
+    storeHotelInLocalStorage(locations,checkInDate,checkOutDate);
 
 });
 
-// Function to store currency in local storage
+// Function to store currency search in local storage
 function storeCurrencyInLocalStorage(from, to) {
     // Check if there is already a currency history in local storage
     var currencyHistory = JSON.parse(localStorage.getItem("currencyHistory")) || [];
@@ -146,5 +146,77 @@ function storeCurrencyInLocalStorage(from, to) {
     localStorage.setItem("currencyHistory", JSON.stringify(currencyHistory));
 }
 
+// Function to store Hotel search in local storage
+function storeHotelInLocalStorage(locations,checkInDate,checkOutDate) {
+    // Check if there is already a hotel history in local storage
+    var hotelHistory = JSON.parse(localStorage.getItem("hotelHistory")) || [];
 
+    // Add the new hotel fields to the hotel history array
+    hotelHistory.push({ locations,checkInDate,checkOutDate });
 
+    // Store the updated hotel history back in local storage
+    localStorage.setItem("hotelHistory", JSON.stringify(hotelHistory));
+}
+
+// --------------------- Displaying History buttons for currency, this needs testing! -------------
+// Function to display Currency history buttons
+function displayCurrencyHistory() {
+    // Get the currency history from local storage
+    var currencyHistory = JSON.parse(localStorage.getItem("currencyHistory")) || [];
+
+    // Get the element where you want to display the buttons
+    var currencyHistoryContainer = $("#currencyHistory");
+
+    // Clear existing content
+    currencyHistoryContainer.empty();
+
+    // Create buttons for each currency search in the history
+    for (var i = 0; i < currencyHistory.length; i++) {
+        var currencyButton = $("<button>")
+            .addClass("btn currency-button")
+            .text(`${currencyHistory[i].from} to ${currencyHistory[i].to}`)
+            .on("click", function () {
+                // Handle button click event, e.g., display exchange rate for the selected currency
+                var selectedCurrencyFrom = currencyHistory[i].from;
+                var selectedCurrencyTo = currencyHistory[i].to;
+                getExchangeRate(selectedCurrencyFrom, selectedCurrencyTo);
+            });
+
+        // Append the button to the history container
+        currencyHistoryContainer.append(currencyButton);
+    }
+}
+
+// Function to display Hotel history buttons
+function displayHotelHistory() {
+    // Get the hotel history from local storage
+    var hotelHistory = JSON.parse(localStorage.getItem("hotelHistory")) || [];
+
+    // Get the element where you want to display the buttons
+    var hotelHistoryContainer = $("#hotelHistory");
+
+    // Clear existing content
+    hotelHistoryContainer.empty();
+
+    // Create buttons for each hotel search in the history
+    for (var i = 0; i < hotelHistory.length; i++) {
+        var hotelButton = $("<button>")
+            .addClass("btn hotel-button")
+            .text(`Location: ${hotelHistory[i].locations}, Check-in: ${hotelHistory[i].checkInDate}, Check-out: ${hotelHistory[i].checkOutDate}`)
+            .on("click", function () {
+                // Handle button click event, e.g., display hotel information for the selected search
+                var selectedLocation = hotelHistory[i].locations;
+                var selectedCheckInDate = hotelHistory[i].checkInDate;
+                var selectedCheckOutDate = hotelHistory[i].checkOutDate;
+                getLocation(selectedLocation, selectedCheckInDate, selectedCheckOutDate);
+            });
+
+        // Append the button to the history container
+        hotelHistoryContainer.append(hotelButton);
+    }
+}
+
+// Call this function to display currency history when the page loads
+displayCurrencyHistory();
+// Call this function to display Hotel history when the page loads
+displayHotelHistory();

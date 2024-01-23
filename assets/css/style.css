@@ -1,6 +1,6 @@
-
+/* jumbotron section */
 .jumbotron {
-    background: url(./assets/images/hero.webp) no-repeat center center;
+    background: url("../images/hero.webp") no-repeat center center;
     background-size: 100%;
     color: black;
     text-align: center;
@@ -31,6 +31,36 @@
     background-color: #0056b3;
 }
 
+/* subscribe section */
+
+/* Custom styles for the subscribe modal */
+#subscribeModal .modal-header {
+    background-color: #007bff; /* Example header background color */
+    color: white; /* Text color for the header */
+}
+
+#subscribeModal .btn-close {
+    color: white; /* Close button color */
+}
+
+#subscribeModal .modal-body {
+    padding: 2rem; /* Padding for modal body */
+}
+
+#subscribeModal .form-label {
+    font-weight: bold; /* Bold font for form labels */
+}
+
+#subscribeModal .btn-primary {
+    background-color: #0062cc; /* Primary button color */
+    border-color: #0056b3; /* Border color for primary button */
+}
+
+#subscribeModal .btn-primary:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* footer section */
 .page-footer {
     background-color: #007bff; /* Footer background color */
     color: black; /* Text color for the footer */
@@ -61,3 +91,37 @@
 .page-footer .list-unstyled a {
     font-size: 0.9rem;
 }
+
+.page-footer {
+    background-color: #f8f9fa; /* Light footer background color */
+    color: #333; /* Text color for better readability */
+    padding: 2rem 0;
+}
+
+.page-footer h5 {
+    color: #007bff; /* Brand color for headings */
+    margin-bottom: 1rem;
+}
+
+.page-footer p {
+    font-size: 1rem;
+    color: #555;
+}
+
+.page-footer a {
+    color: #007bff; /* Link color matching the brand */
+    text-decoration: none;
+}
+
+.page-footer a:hover {
+    color: #0056b3; /* Link hover color */
+}
+
+.page-footer .list-unstyled li {
+    margin-bottom: 0.5rem;
+}
+
+.page-footer .list-unstyled a {
+    font-size: 0.9rem;
+}
+
