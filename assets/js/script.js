@@ -41,6 +41,13 @@ var getExchangeRate = async function (currFrom, currTo) {
 
         // Now result contains the parsed JSON data
         console.log(result);
+        var ExchangeContainer= $("<div>").addClass("current-exchange-container");
+        var currentexchange = $("<div>").addClass("current-exchange");
+        currentexchange.text(`Currency Exchange Rate: ` + result);
+        ExchangeContainer.append(currentexchange);
+        // Append the ExchangeContainer to the element with ID 'fxSearch-results'
+        $("#fxSearch-results").append(ExchangeContainer);
+
     } catch (error) {
         console.error(error);
     }
