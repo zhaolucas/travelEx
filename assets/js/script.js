@@ -11,19 +11,20 @@
 //! - use a fetch api to get the currency data for that country
 //! - store that country into local storage
 // ----------------------------------------------------------
-// - use data in local.storage to create a city button under the travel search area for city history
-// - use data in local.storage to create a country button under the currency search area for country history
-// - when you click the city button it re-displays the hotel/transport data for that city
-// - when you click the country button it re-displays the currency data for that country
+//! - use data in local.storage to create a city button under the travel search area for city history
+//! - use data in local.storage to create a country button under the currency search area for country history
+//! - when you click the city button it re-displays the hotel/transport data for that city
+//! - when you click the country button it re-displays the currency data for that country
 
 //Function to get the Exchange Rate
 var getExchangeRate = async function (currFrom, currTo) {
+    // Construct the URL based on user inputs
     const currencyUrl = `https://currency-exchange.p.rapidapi.com/exchange?from=${currFrom}&to=${currTo}&q=1.0`;
 
     const currencyOptions = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'ef11899325mshfa3ab5c07bdaacbp1c7deajsne4943a99efb8',
+            'X-RapidAPI-Key': '66140ba915mshd0ef6c163e6b47dp1cb311jsnb1e8a4f5e694',
             'X-RapidAPI-Host': 'currency-exchange.p.rapidapi.com'
         }
     };
@@ -38,13 +39,18 @@ var getExchangeRate = async function (currFrom, currTo) {
 
         // Parse the response as JSON
         const result = await response.json();
+        const exchangeRate = result;
 
-        // Now result contains the parsed JSON data
-        console.log(result);
+        // Call the empty function correctly
+        $("#fxSearch-results").empty();
+
         var ExchangeContainer = $("<div>").addClass("current-exchange-container");
         var currentexchange = $("<div>").addClass("current-exchange");
-        currentexchange.text(`Currency Exchange Rate: ` + result);
+        // Display the currFrom and currTo values in the text
+        currentexchange.text(`Currency Exchange Rate from "${currFrom}" to "${currTo}": ${exchangeRate}`);
+
         ExchangeContainer.append(currentexchange);
+
         // Append the ExchangeContainer to the element with ID 'fxSearch-results'
         $("#fxSearch-results").append(ExchangeContainer);
 
@@ -59,7 +65,7 @@ var getLocation = async function (locations, checkInDate, checkOutDate) {
     const locOptions = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '66140ba915mshd0ef6c163e6b47dp1cb311jsnb1e8a4f5e694',
+            'X-RapidAPI-Key': 'b43bed7f99msh71a00619e7227b3p1561c8jsn10cb64e6a2b2',
             'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
         }
     };
@@ -97,7 +103,7 @@ var getHotel = async function (geoID, checkInDate, checkOutDate) {
     const hotelOptions = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '66140ba915mshd0ef6c163e6b47dp1cb311jsnb1e8a4f5e694',
+            'X-RapidAPI-Key': 'b43bed7f99msh71a00619e7227b3p1561c8jsn10cb64e6a2b2',
             'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
         }
     };
@@ -106,6 +112,9 @@ var getHotel = async function (geoID, checkInDate, checkOutDate) {
         const response = await fetch(hotelUrl, hotelOptions);
         const result = await response.json();
         console.log(result);
+
+        // Clear existing hotel cards
+        $("#hotelSearch-results").empty();
 
         // Create a container for hotel cards
         var HotelCardsContainer = $("<div>").addClass("row mt-3");
@@ -144,11 +153,17 @@ $("#submitConvert").on("click", function (event) {
     var currFrom = $("#currFrom").val();
     var currTo = $("#currTo").val();
 
-    //Call the getExchangeRate function
-    getExchangeRate(currFrom, currTo);
-    // Store the city name in local storage
-    storeCurrencyInLocalStorage(currFrom, currTo);
-
+    // Check if both currFrom and currTo have values before calling getExchangeRate
+    if (currFrom && currTo) {
+        // Call the getExchangeRate function
+        getExchangeRate(currFrom, currTo);
+        // Store the getExchangeRate in local storage
+        storeCurrencyInLocalStorage(currFrom, currTo);
+        // Update the displayed currency history
+        displayCurrencyHistory();
+    } else {
+        console.error("Invalid currency values");
+    }
 });
 
 // Click Event Function for Hotel button
@@ -167,36 +182,25 @@ $("#submitHotel").on("click", async function (event) {
 
         // Store the location, checkInDate, checkOutDate, and geoID in local storage
         storeHotelInLocalStorage(locations, checkInDate, checkOutDate, geoID);
+        // Update the displayed Hotel history
+        displayHotelHistory();
     } catch (error) {
         console.error(error);
     }
 });
 
 // Function to store currency search in local storage
-function storeCurrencyInLocalStorage(from, to) {
+function storeCurrencyInLocalStorage(currFrom, currTo) {
     // Check if there is already a currency history in local storage
     var currencyHistory = JSON.parse(localStorage.getItem("currencyHistory")) || [];
 
     // Add the new currency fields to the currency history array
-    currencyHistory.push({ from, to });
+    currencyHistory.push({ currFrom: currFrom, currTo: currTo });
 
     // Store the updated currency history back in local storage
     localStorage.setItem("currencyHistory", JSON.stringify(currencyHistory));
 }
 
-// Function to store Hotel search in local storage
-function storeHotelInLocalStorage(locations, checkInDate, checkOutDate) {
-    // Check if there is already a hotel history in local storage
-    var hotelHistory = JSON.parse(localStorage.getItem("hotelHistory")) || [];
-
-    // Add the new hotel fields to the hotel history array
-    hotelHistory.push({ locations, checkInDate, checkOutDate });
-
-    // Store the updated hotel history back in local storage
-    localStorage.setItem("hotelHistory", JSON.stringify(hotelHistory));
-}
-
-// --------------------- Displaying History buttons for currency, this needs testing! -------------
 // Function to display Currency history buttons
 function displayCurrencyHistory() {
     // Get the currency history from local storage
@@ -210,19 +214,34 @@ function displayCurrencyHistory() {
 
     // Create buttons for each currency search in the history
     for (var i = 0; i < currencyHistory.length; i++) {
-        var currencyButton = $("<button>")
-            .addClass("btn currency-button")
-            .text(`${currencyHistory[i].from} to ${currencyHistory[i].to}`)
-            .on("click", function () {
-                // Handle button click event, e.g., display exchange rate for the selected currency
-                var selectedCurrencyFrom = currencyHistory[i].from;
-                var selectedCurrencyTo = currencyHistory[i].to;
-                getExchangeRate(selectedCurrencyFrom, selectedCurrencyTo);
-            });
+        // Use a closure to capture the correct value of 'i'
+        (function (index) {
+            var currencyButton = $("<button>")
+                .addClass("btn currency-button")
+                .text(`${currencyHistory[index].currFrom} to ${currencyHistory[index].currTo}`)
+                .on("click", function () {
+                    // Handle button click event, e.g., display exchange rate for the selected currency
+                    var selectedCurrencyFrom = currencyHistory[index].currFrom;
+                    var selectedCurrencyTo = currencyHistory[index].currTo;
+                    getExchangeRate(selectedCurrencyFrom, selectedCurrencyTo);
+                });
 
-        // Append the button to the history container
-        currencyHistoryContainer.append(currencyButton);
+            // Append the button to the history container
+            currencyHistoryContainer.append(currencyButton);
+        })(i);
     }
+}
+
+// Function to store Hotel search in local storage
+function storeHotelInLocalStorage(locations, checkInDate, checkOutDate) {
+    // Check if there is already a hotel history in local storage
+    var hotelHistory = JSON.parse(localStorage.getItem("hotelHistory")) || [];
+
+    // Add the new hotel fields to the hotel history array
+    hotelHistory.push({ locations, checkInDate, checkOutDate });
+
+    // Store the updated hotel history back in local storage
+    localStorage.setItem("hotelHistory", JSON.stringify(hotelHistory));
 }
 
 // Function to display Hotel history buttons
@@ -238,19 +257,31 @@ function displayHotelHistory() {
 
     // Create buttons for each hotel search in the history
     for (var i = 0; i < hotelHistory.length; i++) {
-        var hotelButton = $("<button>")
-            .addClass("btn hotel-button")
-            .text(`Location: ${hotelHistory[i].locations}, Check-in: ${hotelHistory[i].checkInDate}, Check-out: ${hotelHistory[i].checkOutDate}`)
-            .on("click", function () {
-                // Handle button click event, e.g., display hotel information for the selected search
-                var selectedLocation = hotelHistory[i].locations;
-                var selectedCheckInDate = hotelHistory[i].checkInDate;
-                var selectedCheckOutDate = hotelHistory[i].checkOutDate;
-                getLocation(selectedLocation, selectedCheckInDate, selectedCheckOutDate);
-            });
+        // Use a closure to capture the correct values
+        (function (index) {
+            var hotelButton = $("<button>")
+                .addClass("btn hotel-button")
+                .text(`Location: ${hotelHistory[index].locations}, Check-in: ${hotelHistory[index].checkInDate}, Check-out: ${hotelHistory[index].checkOutDate}`)
+                .on("click", function () {
+                    // Handle button click event, e.g., display hotel information for the selected search
+                    var selectedLocation = hotelHistory[index].locations;
+                    var selectedCheckInDate = hotelHistory[index].checkInDate;
+                    var selectedCheckOutDate = hotelHistory[index].checkOutDate;
 
-        // Append the button to the history container
-        hotelHistoryContainer.append(hotelButton);
+                    // Call the getLocation function and wait for it to complete
+                    getLocation(selectedLocation, selectedCheckInDate, selectedCheckOutDate)
+                        .then(function (geoID) {
+                            // Call the getHotel function with the obtained geoID
+                            getHotel(geoID, selectedCheckInDate, selectedCheckOutDate);
+                        })
+                        .catch(function (error) {
+                            console.error(error);
+                        });
+                });
+
+            // Append the button to the history container
+            hotelHistoryContainer.append(hotelButton);
+        })(i); // Pass the current index to the closure
     }
 }
 
