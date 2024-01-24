@@ -65,7 +65,7 @@ var getLocation = async function (locations, checkInDate, checkOutDate) {
     const locOptions = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'b43bed7f99msh71a00619e7227b3p1561c8jsn10cb64e6a2b2',
+            'X-RapidAPI-Key': '62909c78c9msh2babe840379da6fp1412cajsn871450a50839',
             'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
         }
     };
@@ -103,7 +103,7 @@ var getHotel = async function (geoID, checkInDate, checkOutDate) {
     const hotelOptions = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': 'b43bed7f99msh71a00619e7227b3p1561c8jsn10cb64e6a2b2',
+            'X-RapidAPI-Key': '62909c78c9msh2babe840379da6fp1412cajsn871450a50839',
             'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
         }
     };
