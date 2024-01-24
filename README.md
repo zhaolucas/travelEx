@@ -63,7 +63,7 @@ The following animation demonstrates the application functionality:
 
 ## Credits
 
-1) TA: Jack Labukas, Zak
+1) TA: Jack Labukas, Zakariya Hussain
 2) Instructor: Laura Cole
 3) Group members: Christoper Ezenwenyi, ​Sophie Ebsworth
 4) Personal Tutors

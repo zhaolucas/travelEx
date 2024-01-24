@@ -41,105 +41,114 @@
     <div class="container">
         <h1 class="display-4">Save on your holidays</h1>
         <p class="lead">Your planning begins here</p>
-        <a href="#cards-section" class="btn btn-primary btn-lg">Start Your Adventure</a>
     </div>
   </div>
 
-    <!-- cards cards cards -->
-    <div class="container mb-3 py-6">
-      <div class="row">
-        <!-- Card 1 -->
-        <div class="cardContainer col-lg-6 col-md-6 col-sm-12 w-50">
+  <div class="container mb-3 py-6">
+    <!-- First Pair: Hotel Search and Results -->
+    <div class="row">
+        <!-- Hotel Search Card -->
+        <div class="col-lg-6 col-md-6 col-sm-12">
           <div class="card">
-            <img src="./assets/images/money1.png" height= 300px class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Find your next stay</h5>
-              <p class="card-text">Search deals on hotels</p>
-            <div class="container">
-              <a class="navbar-brand"></a>
-              <form>
-                <fieldset Hotel="">
-                  <div class="mb-3">
-                    <input type="text" id="searchLocation" class="form-control" placeholder="Where are you going?"> <br>
-                    <!-- calendercode -->
-                    <section class="Calender">
-                      Check-in Date
-                      <input id="checkinDate" width="276" />
-                      <script>
-                        $('#checkinDate').datepicker({
-                          format: 'yyyy-mm-dd',
-                          uiLibrary: 'bootstrap5'
-                        });
-                      </script>
-                      Check-out Date
-                      <input id="checkoutDate" width="276" />
-                      <script>
-                        $('#checkoutDate').datepicker({
-                          format: 'yyyy-mm-dd',
-                          uiLibrary: 'bootstrap5'
-                        });
-                      </script>
-                    </section>
-                    <!-- End of calendercode -->
-                    <button type="submit" id="submitHotel" class="btn btn-primary">Search</button>
-            </div>
+              <img src="./assets/images/hotel2.png" height="300px" class="card-img-top" alt="Hotel">
+              <div class="card-body">
+                  <h5 class="card-title">Find your next stay</h5>
+                  <p class="card-text">Search deals on hotels</p>
+                  <form>
+                      <div class="mb-3">
+                          <input type="text" id="searchLocation" class="form-control" placeholder="Where are you going?">
+                      </div>
+                      <!-- Calendar Code -->
+                      <section class="Calendar">
+                          Check-in Date
+                          <input id="checkinDate" width="276" />
+                          <script>
+                              $('#checkinDate').datepicker({
+                                  format: 'yyyy-mm-dd',
+                                  uiLibrary: 'bootstrap5'
+                              });
+                          </script>
+                          Check-out Date
+                          <input id="checkoutDate" width="276" />
+                          <script>
+                              $('#checkoutDate').datepicker({
+                                  format: 'yyyy-mm-dd',
+                                  uiLibrary: 'bootstrap5'
+                              });
+                          </script>
+                      </section>
+                      <!-- End of Calendar Code -->
+                      <button type="submit" id="submitHotel" class="btn btn-primary">Search</button>
+                  </form>
+              </div>
           </div>
-        </div>
       </div>
-    </div>
-    
-        <!-- End card 1 -->
-        <!-- Card 2 -->
-    <div class="cardContainer col-lg-6 col-md-6 col-sm-12 w-50">
-      <div class="card">
-        <img src="https://picsum.photos/100/100" height=300px class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Foreign Exchange</h5>
-          <class="card-text">Best source for currency conversion.
-            <div class="container-fluid">
-              <a class="navbar-brand"></a>
-              <section>
-                <section id=fxForm>
-                  <div class="mb-2">
-                    <label for="TextInput" class="form-label">From</label>
-                    <input type="text" id="currFrom" class="form-control" placeholder="GBP">
-                  </div>
-                  <div class="mb-2">
-                    <label for="TextInput" class="form-label">To</label>
-                    <input type="text" id="currTo" class="form-control" placeholder="USD">
-                  </div>
-                  <button type="submit" id="submitConvert" class="btn btn-primary">Convert</button>
-                </section>
+
+        <!-- Hotel Result Container -->
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="hotelSearch-container">
+                <div class="card container mb-3">
+                    <div class="card-header text-light bg-primary">
+                        <i class="fa fa-th" aria-hidden="true"></i> Top Hotels
+                    </div>
+                    <div class="card-body" id="hotelSearch-results">
+                        <!-- Hotel results will be displayed here -->
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-        <!-- End card 2 -->
-          <!-- Hotel Result Container -->
-    <div class="hotelSearch-container">
-      <div class="card container mb-3 ">
-        <div class="card-header text-light bg-primary">
-          <i class="fa fa-th" aria-hidden="true"></i> Top Hotels
+
+    <!-- Second Pair: Currency Exchange and Results -->
+    <div class="row">
+        <!-- Currency Search Card -->
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="card">
+                <img src="./assets/images/money2.png" height="300px" class="card-img-top" alt="Currency Exchange">
+                <div class="card-body">
+                    <h5 class="card-title">Foreign Exchange</h5>
+                    <p class="card-text">Best source for currency conversion.</p>
+                    <form id="fxForm">
+                        <div class="mb-2">
+                            <label for="TextInput" class="form-label">From</label>
+                            <input type="text" id="currFrom" class="form-control" placeholder="GBP">
+                        </div>
+                        <div class="mb-2">
+                            <label for="TextInput" class="form-label">To</label>
+                            <input type="text" id="currTo" class="form-control" placeholder="USD">
+                        </div>
+                        <button type="submit" id="submitConvert" class="btn btn-primary">Convert</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="card-body" id="hotelSearch-results">
+
+        <!-- FX Result Container -->
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="fxSearch-container">
+                <div class="card container mb-3">
+                    <div class="card-header text-light bg-primary">
+                        <i class="fa fa-th" aria-hidden="true"></i> Foreign Exchange Results
+                    </div>
+                    <div class="card-body" id="fxSearch-results">
+                        <!-- FX results will be displayed here -->
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    <!-- Fx Result containter -->
-    <div class="fxSearch-container">
-      <div class="card container mb-3">
-        <div class="card-header text-light bg-primary">
-          <i class="fa fa-th" aria-hidden="true"></i> Foreign Exchange Results
-        </div>
-        <div class="card-body" id="fxSearch-results">
-        </div>
-      </div>
-    </div>
+</div>
       <!-- Search History -->
-      <div class="list-group" id="fxSearchhistory"></div>
-      <div class="list-group" id="hotelSearchhistory"></div>
+<div class="search-history-section">
+  <h3 class="search-history-heading">Hotel Search History</h3>
+  <div class="list-group" id="hotelSearchhistory"></div>
+</div>
+
+<div class="search-history-section">
+  <h3 class="search-history-heading">Currency Search History</h3>
+  <div class="list-group" id="fxSearchhistory"></div>
+</div>
+
 
 <!-- Button to trigger subscribe modal -->
 <button type="button" class="btn btn-primary subscribe-button subscribe-btn-margin" data-bs-toggle="modal" data-bs-target="#subscribeModal">
@@ -181,10 +190,10 @@
           <div class="col-md-4 mb-md-0 mb-3">
               <h5 class="text-uppercase">Useful Links</h5>
               <ul class="list-unstyled">
-                  <li><a href="about-us.html">About Us</a></li>
-                  <li><a href="terms-and-conditions.html">Terms and Conditions</a></li>
-                  <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                  <li><a href="contact-us.html">Contact Us</a></li>
+                  <li><a href="">About Us</a></li>
+                  <li><a href="">Terms and Conditions</a></li>
+                  <li><a href="">Privacy Policy</a></li>
+                  <li><a href="">Contact Us</a></li>
               </ul>
           </div>
 
