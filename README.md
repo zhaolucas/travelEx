@@ -21,7 +21,7 @@ The application uses client-side storage to store persistent data and does not u
 
 This app allows holiday planners to check for the best prices for hotels and allows them to convert their local currency to another currency of choice easily. It will help the user to plan a holiday or work trip to a destination of their choice. 
 
-User Story
+User Story: 
 As a thrifty aspiring Front-End development student,
 I want to find budget hotels and airlines,
 And calculate the potential expenses in local currencies,
@@ -45,10 +45,9 @@ travelEx simplifies holiday planning with easy-to-use interfaces. The main secti
 
 1. Navigation Bar: Quick access to all features.
 2. Jumbotron: Eye-catching introduction with a hero image.
-3. Search Bars: For flights, accommodation, and currency exchange.
-4. Call-to-Action Card: Engages the user for immediate action.
-5. Subscription Button: For regular updates and offers.
-6. Footer: Links to social media, 'About Us', and other resources.
+3. Search Bars: For accommodation, and currency exchange rate.
+4. Subscription Button: For regular updates and offers.
+5. Footer: Links to contributors' github, and empty links.
 
 The following animation demonstrates the application functionality:
 
@@ -56,7 +55,7 @@ The following animation demonstrates the application functionality:
 
 ## Features
 
-1. Best Price Finder: Compares prices for hotels and flights.
+1. Best Price Finder: Compares prices for hotels.
 2. Currency Converter: Easily converts to the desired currency.
 3. Responsive Design: Accessible on various devices.
 4. Persistent Data Storage: Remembers your searches and preferences.

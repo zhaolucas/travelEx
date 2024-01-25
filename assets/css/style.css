@@ -64,30 +64,30 @@
 /* Jumbotron Section */
 .jumbotron {
     background: url("../images/hero.webp") no-repeat center center;
-    background-size: 100% auto; /* Stretch the image to cover the full width */
-    color: rgb(120, 120, 207);
+    background-size: 100% auto; 
+    color: rgb(215, 215, 224);
     text-align: center;
-    padding: 5rem 1rem; /* Adjust padding as needed */
+    padding: 5rem 1rem; 
     position: relative;
     overflow: hidden;
 }
 
 .jumbotron h1 {
-    font-family: 'Arial', sans-serif; /* Modern, readable font */
-    font-size: 3.5rem; /* Slightly smaller for better fit */
+    font-family: 'Arial', sans-serif; 
+    font-size: 3.5rem; 
     font-weight: bold;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Enhanced text shadow for readability */
+    margin-top: 20rem; 
+    margin-bottom: 4rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
 }
 
 .jumbotron p {
     font-family: 'Arial', sans-serif;
-    font-size: 1.5rem; /* Adjusted for better readability */
-    max-width: 700px; /* Wider for better text alignment */
+    font-size: 1.5rem; 
+    max-width: 700px; 
     margin: auto;
-    margin-bottom: 2rem;
-    line-height: 1.5; /* Improved line height for readability */
-}
+    margin-bottom: 10rem;
+    line-height: 1.5;
 
 .jumbotron button {
     font-family: 'Arial', sans-serif;
@@ -95,15 +95,15 @@
     padding: 0.8rem 1.5rem;
     background-color: #007bff;
     color: white;
-    border-radius: 5px; /* Slightly less rounded for a modern look */
+    border-radius: 5px; 
     cursor: pointer;
-    border: none; /* Remove border for a cleaner look */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtler shadow for a sleek look */
+    border: none; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
 .jumbotron button:hover {
     background-color: #0056b3;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Enhanced hover effect */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); 
 }
 
 /* Responsive Design for Jumbotron */
@@ -168,6 +168,15 @@
     }
 }
 
+.search-history-container {
+    display: flex;
+    justify-content: space-around; /* Adjust spacing as needed */
+}
+
+.search-history-section {
+    flex: 1; /* Adjusts each section to take equal space */
+    /* Add padding, margin as needed */
+}
 
 /* Search History Section Styling */
 .search-history-section {
@@ -258,6 +267,7 @@
         padding: 0.5rem; /* Maintain reduced padding on smaller screens */
     }
 }
+
 
 /* Full-width Subscribe Button */
 .subscribe-button {
@@ -360,4 +370,5 @@
     .jumbotron p {
         font-size: 1.5rem;
     }
+}
 }
