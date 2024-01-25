@@ -51,7 +51,7 @@ travelEx simplifies holiday planning with easy-to-use interfaces. The main secti
 
 The following animation demonstrates the application functionality:
 
-![Description](</screenshot>)
+![Description](<./assets/images/screenshot.png>)
 
 ## Features
 
